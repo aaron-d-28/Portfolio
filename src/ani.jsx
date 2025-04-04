@@ -5,14 +5,14 @@ const P5Background = () => {
     let particles = [];
 
     const setup = (p5, canvasParentRef) => {
-        p5.createCanvas(p5.windowWidth, p5.windowHeight).parent(canvasParentRef);
+        p5.createCanvas(p5.windowWidth + 1, p5.windowHeight - 1).parent(canvasParentRef);
         for (let i = 0; i < 100; i++) {
             particles.push(new Particle(p5));
         }
     };
 
     const draw = (p5) => {
-        p5.clear(); // Ensures no unwanted background layers
+        p5.clear();
         p5.background("#09E85E");
         for (let particle of particles) {
             particle.move();
@@ -22,7 +22,7 @@ const P5Background = () => {
     };
 
     const windowResized = (p5) => {
-        p5.resizeCanvas(p5.windowWidth, p5.windowHeight);
+        p5.resizeCanvas(p5.windowWidth + 1, p5.windowHeight - 1);
     };
 
     class Particle {
@@ -51,7 +51,7 @@ const P5Background = () => {
         }
     }
 
-    return <Sketch setup={setup} draw={draw} windowResized={windowResized} className="absolute top-0 left-0 w-full h-full z-[-1]" />;
+    return <Sketch setup={setup} draw={draw} windowResized={windowResized} className="fixed inset-0 w-full h-full z-[-1] overflow-hidden" />;
 };
 
 export default P5Background;

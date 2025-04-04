@@ -19,26 +19,26 @@ const Navbar = () => {
 
                 {/* Links */}
                 <ul
-                    className={`md:flex space-x-6 md:static absolute md:w-auto w-full bg-gray-900 md:bg-transparent md:p-0 p-4 top-14 transition-all ${
+                    className={`md:flex space-x-6 md:static absolute md:w-auto w-full bg-[#064E3B ] md:bg-transparent md:p-0 p-4 top-14 transition-all ${
                         isOpen ? "left-0" : "left-[-100%]"
                     }`}
                 >
                     <li>
-                        <Link className="hover:text-gray-400" to="/" onClick={() => setIsOpen(false)}>
+                        <Link className="text-sm hover:text-gray-400" to="/" onClick={() => setIsOpen(false)}>
                             Home
                         </Link>
                     </li>
                     <li>
-                        <Link className="hover:text-gray-400" to="/about" onClick={() => setIsOpen(false)}>
+                        <Link className="text-sm hover:text-gray-400" to="/about" onClick={() => setIsOpen(false)}>
                             About
                         </Link>
                     </li>
                     <li>
-                        <Link className="hover:text-gray-400" to="/contact" onClick={() => setIsOpen(false)}>
+                        <Link className="text-sm hover:text-gray-400" to="/contact" onClick={() => setIsOpen(false)}>
                             Contact
                         </Link>
                     </li> <li>
-                        <Link className="hover:text-gray-400" to="/Projects" onClick={() => setIsOpen(false)}>
+                        <Link className="text-sm hover:text-gray-400" to="/Projects" onClick={() => setIsOpen(false)}>
                             Projects
                         </Link>
                     </li>
