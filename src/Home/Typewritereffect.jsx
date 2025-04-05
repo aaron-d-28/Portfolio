@@ -9,7 +9,7 @@ const TypewriterComponent = ({ words }) => {
             <h2 className="text-3xl font-semibold mt-2">
                 I'm A
                 <br />
-                <span className="text-green-800 font-bold min-w-[250px] inline-block">
+                <span className="text-green-400 font-bold min-w-[250px] inline-block">
                     <Typewriter
                         words={words}
                         loop={true}

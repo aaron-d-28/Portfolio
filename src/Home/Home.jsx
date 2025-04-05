@@ -5,25 +5,31 @@ import SomeThingsAboutMe from "./Personalinfo.jsx";
 
 const Home = () => {
     return (
-        <div className="relative w-full min-h-screen">
+        <div className="relative w-full min-h-screen overflow-hidden">
             {/* Background Animation */}
             <P5Background />
 
             {/* Main Content */}
-            <div className="flex flex-col items-center justify-center min-h-screen text-white p-10 rounded-lg  mr-50">
+            <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-white px-6 py-12">
 
-                {/* Typewriter & SVG */}
-                <div className="flex items-center space-x-160 ml-50 ">
+                {/* Typewriter + SVG Row */}
+                <div className="flex flex-col md:flex-row items-center gap-12">
                     {/* Typewriter Effect */}
                     <TypewriterComponent words={["Developer!", "Designer!", "Creator!"]} />
-                    {/* SVG Icon */}
-                    <img src="/assets/computer.svg" className="w-70 h-70   " alt="Monitor Icon" />
-                </div>
 
+                    {/* SVG Icon */}
+                    <img
+                        src="/assets/computer.svg"
+                        alt="Monitor Icon"
+                        className="w-52 h-52 md:w-72 md:h-72"
+                    />
+                </div>
             </div>
 
             {/* Personal Info Section */}
-            <SomeThingsAboutMe />
+            <div className="relative z-10 mt-[-40px]">
+                <SomeThingsAboutMe />
+            </div>
         </div>
     );
 };

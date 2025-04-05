@@ -12,8 +12,9 @@ const P5Background = () => {
     };
 
     const draw = (p5) => {
-        p5.clear();
-        p5.background("#09E85E");
+        // Clear with semi-transparent dark to create trailing effect
+        p5.background(10, 15, 20, 80);
+
         for (let particle of particles) {
             particle.move();
             particle.bounce(p5);
@@ -29,9 +30,10 @@ const P5Background = () => {
         constructor(p5) {
             this.x = p5.random(p5.width);
             this.y = p5.random(p5.height);
-            this.size = p5.random(5, 20);
-            this.speedX = p5.random(-2, 2);
-            this.speedY = p5.random(-2, 2);
+            this.size = p5.random(4, 10);
+            this.speedX = p5.random(-1.5, 1.5);
+            this.speedY = p5.random(-1.5, 1.5);
+            this.alpha = p5.random(100, 200);
         }
 
         move() {
@@ -46,12 +48,19 @@ const P5Background = () => {
 
         display(p5) {
             p5.noStroke();
-            p5.fill(255, 150);
+            p5.fill(0, 255, 170, this.alpha); // Neon mint
             p5.ellipse(this.x, this.y, this.size);
         }
     }
 
-    return <Sketch setup={setup} draw={draw} windowResized={windowResized} className="fixed inset-0 w-full h-full z-[-1] overflow-hidden" />;
+    return (
+        <Sketch
+            setup={setup}
+            draw={draw}
+            windowResized={windowResized}
+            className="fixed inset-0 w-full h-full z-[-1] overflow-hidden backdrop-blur-sm"
+        />
+    );
 };
 
 export default P5Background;

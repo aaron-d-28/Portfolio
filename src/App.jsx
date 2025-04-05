@@ -1,24 +1,26 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Navbar from "./Navbar";
-import About from "./About us/Aboutus.jsx";
-import Contactus from "./Contact_us/Contactus.jsx";
-import Projects from "./Projects/Projects.jsx";
+import Navbar from "./Navbar.jsx";
 import Home from "./Home/Home.jsx";
+import AboutUs from "./About us/Aboutus.jsx";
+import ContactUs from "./Contact_us/Contactus.jsx";
+import Projects from "./Projects/Projects.jsx";
 
 function App() {
     return (
         <Router>
-            {/* Navbar stays fixed across all pages */}
+            {/* Global background layer behind everything */}
+            <div className="fixed inset-0 -z-10 bg-gradient-to-br from-[#0f172a] via-[#1e1e1e] to-[#1a1a1a]" />
+
             <Navbar />
 
-            {/* Prevent content from overlapping Navbar */}
-            <div className="mt-16">
+            {/* App routes */}
+            <div className="pt-20"> {/* Add padding so content doesn't hide under navbar */}
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/about" element={<About />} />
-                    <Route path="/contact" element={<Contactus />} />
-                    <Route path="/Projects" element={<Projects />} />
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/about" element={<AboutUs />} />
+                    <Route path="/contact" element={<ContactUs />} />
+                    <Route path="/projects" element={<Projects />} />
                 </Routes>
             </div>
         </Router>
